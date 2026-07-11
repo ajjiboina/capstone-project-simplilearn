@@ -1,5 +1,6 @@
 # Imports
 from dotenv import load_dotenv
+from agent_workflows.agent_orchestration import run
 import streamlit as st
 
 from app_config.config import AgenticAIConfig
@@ -21,8 +22,8 @@ if "config" not in st.session_state:
 config = st.session_state.config
 
 #Initialize Streamlit - Converation History
-if "Chat_history" not in st.session_state:
-    st.session_state.Chat_history = []
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
 # Setting dic for Available models
 MODEL_REGISTRY= {
@@ -63,7 +64,7 @@ if st.button("Generate Response",type="primary"):
         st.warning("Please enter a query before generating a response.")
     else:
         #store user query in chat history
-        st.session_state.chat_history = st.session_state.append(
+        st.session_state.chat_history.append(
             {
                 "role": "user",
                 "message": config.user_query
@@ -72,6 +73,7 @@ if st.button("Generate Response",type="primary"):
         # create a spinner until the response is generated
         with st.spinner("AI Agent is thinking for your response..."):
             # Call crewAI Flow -- To do 
+            run(config)
 
             # Store the response in coversation History
             st.session_state.chat_history.append(
