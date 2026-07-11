@@ -1,0 +1,14 @@
+# Useful python Libraries
+python-dotenv
+
+# Agentic AI Libraries
+langchain
+langchain-openai
+langchain-ollama
+langchain-classic
+langsmith
+crewai
+fastmcp
+
+# UI 
+streamlit
