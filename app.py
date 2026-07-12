@@ -4,11 +4,16 @@ from agent_workflows.agent_orchestration import run
 import streamlit as st
 
 from app_config.config import AgenticAIConfig
+from observability.logger import logger
+
+logger.info("Agentic AI Application is starting...")
+
 
 # Loading Environment Variables
 load_dotenv() # it will load all env variables
 
 # Set Page Config 
+logger.info("Setting Streamlit page configuration...")
 st.set_page_config(
     page_title="Sree SL Capstone Project - Chatbot", #Show it in the tab
     page_icon=":robot_face:",
@@ -28,7 +33,7 @@ if "chat_history" not in st.session_state:
 # Setting dic for Available models
 MODEL_REGISTRY= {
     "openAI": ["gpt-3.5-turbo", "gpt-4"],
-    "ollama": ["llama2", "llama3","mistral","phi3","gemma"]
+    "ollama": ["llama2", "llama3.2","mistral","phi3","gemma"]
 
 }
 
