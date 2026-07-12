@@ -1,10 +1,10 @@
 #Imports 
-from langsmith import tracable
+from langsmith import traceable  # type: ignore
 from app_config.config import AgenticAIConfig
 from agent_workflows.crew_setup import create_crew
 
 #LangSmith Specific
-@tracable(name="Agentic AI Capstone Project Demo",run_type="chain")
+@traceable(name="Agentic AI Capstone Project Demo",run_type="chain")
 def run(config:AgenticAIConfig):
     """
     This is the entry point for the Agentic AI Workflow 

@@ -12,5 +12,6 @@ pip install -r requirements.txt
 set OPENAPI_API_KEY=<your-api-key>
 
 5. Run the DB Files to create the DB locally
+python -m db.create_and_write_in_product_db
 
 6. Running the Streamlit Application 
