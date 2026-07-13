@@ -5,13 +5,13 @@ connection=sqlite3.connect('db/memory.db')
 
 cursor=connection.cursor()
 
-cursor.execute(""""
+cursor.execute("""
                CREATE TABLE IF NOT EXISTS conversation_memory (
                 id INTEGER PRIMARY KEY AUTOINCREMENT, 
                 session_id TEXT, 
                 role TEXT, 
                 message TEXT, 
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)) 
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)
                """)
 
 connection.commit()
